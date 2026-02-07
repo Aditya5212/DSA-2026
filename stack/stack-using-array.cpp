@@ -152,3 +152,71 @@ int main() {
 */
 
 
+// Stack Implementation using Dynamic Array
+
+class DynamicStack{
+    private:
+        vector<int> arr;
+    public:
+        DynamicStack(){
+            arr = vector<int>();
+        }
+        ~DynamicStack(){
+            arr.clear();
+        }
+        void push(int data){
+            arr.push_back(data);
+        }
+
+        void pop(){
+            if(arr.size() == 0){
+                cout << "Stack Underflow" << endl;
+                return;
+            }
+            arr.pop_back();
+        }
+        int peek(){
+            if(arr.size() == 0){
+                cout << "Stack is empty" << endl;
+                return -1;
+            }
+            return arr[arr.size() - 1];
+        }
+        bool isEmpty(){
+            return arr.size() == 0;
+        }
+        bool isFull(){
+            return arr.size() == arr.capacity();
+        }
+        int size(){
+            return arr.size();
+        }
+        void display(){
+            for(int i = 0; i < arr.size(); i++){
+                cout << arr[i] << " ";
+            }
+            cout << endl;
+        }
+};
+
+// int main() {
+//     DynamicStack st;
+
+//     // pushing elements
+//     st.push(1);
+//     st.push(2);
+//     st.push(3);
+//     st.push(4);
+
+//     // popping one element
+//     st.pop();
+
+//     // checking top element
+//     cout << "Top element: " << st.peek() << endl;
+
+//     // checking if stack is empty
+//     cout << "Is stack empty: " << (st.isEmpty() ? "Yes" : "No") << endl;
+    
+//     // checking current size
+//     cout << "Current size: " << st.size() << endl;
+// }
